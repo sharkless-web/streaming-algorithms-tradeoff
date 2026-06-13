@@ -13,7 +13,6 @@ import csv
 import hashlib
 import json
 import math
-import platform
 import random
 import statistics
 import sys
@@ -55,6 +54,8 @@ RANDOM_STATE = 42
 MOVIELENS_URL = "https://files.grouplens.org/datasets/movielens/ml-1m.zip"
 DATASET_PAGE = "https://grouplens.org/datasets/movielens/1m/"
 DEFAULT_SOURCE_URL = "https://github.com/sharkless-web/streaming-algorithms-tradeoff"
+STUDENT_ID = "2353913"
+STUDENT_NAME = "황수영"
 SUIT_REGULAR_URL = "https://raw.githubusercontent.com/sun-typeface/SUIT/main/fonts/static/ttf/SUIT-Regular.ttf"
 SUIT_BOLD_URL = "https://raw.githubusercontent.com/sun-typeface/SUIT/main/fonts/static/ttf/SUIT-Bold.ttf"
 
@@ -643,8 +644,9 @@ def build_report(
     fastest = max(bloom_rows + cms_rows, key=lambda row: row["throughput_records_per_sec"])
 
     story.append(Paragraph("스트리밍 알고리즘 2종 구현 및 정확도·메모리 트레이드오프 분석", styles["title"]))
-    story.append(Paragraph(f"데이터셋: MovieLens 1M rating stream / 소스코드 GitHub: {source_url}", body))
-    story.append(Paragraph(f"생성 환경: Python {platform.python_version()} / {platform.system()} {platform.release()}", body))
+    story.append(Paragraph("데이터셋: MovieLens 1M rating stream", body))
+    story.append(Paragraph(f"소스코드 GitHub: {source_url}", body))
+    story.append(Paragraph(f"학번: {STUDENT_ID} / 이름: {STUDENT_NAME}", body))
 
     story.append(Paragraph("1. 데이터셋 설명", heading))
     story.append(
