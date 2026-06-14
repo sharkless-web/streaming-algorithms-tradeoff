@@ -13,6 +13,7 @@ import csv
 import hashlib
 import json
 import math
+import platform
 import random
 import statistics
 import sys
@@ -700,6 +701,13 @@ def build_report(
     add_table(story, table_data(implementation_rows, ["알고리즘", "스트림 입력", "Ground Truth", "정확도 지표"]), small)
 
     story.append(Paragraph("4. 실험 환경 및 파라미터", heading))
+    story.append(
+        Paragraph(
+            f"실험 환경은 Python {platform.python_version()} / {platform.system()} {platform.release()}이며, "
+            "데이터는 로컬 파일 iterator로 순차 처리하였다.",
+            body,
+        )
+    )
     parameter_rows = [
         {"알고리즘": "Bloom Filter", "파라미터": "m_bits / k_hashes", "실험값": "2,000,000/3, 5,000,000/5, 10,000,000/7"},
         {"알고리즘": "Count-Min Sketch", "파라미터": "width / depth", "실험값": "500/3, 2,000/5, 10,000/7"},
